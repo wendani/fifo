@@ -5,6 +5,13 @@ struct list_node_head {
 	uint32_t qlen;
 };
 
+struct list_node {
+	struct list_node *next;
+	struct list_node *prev;
+
+	void *data;
+};
+
 /**
  * Caller ensures that argument head is not NULL
  */
@@ -15,13 +22,6 @@ inline void __list_head_init(struct list_node_head *head)
 
 	head->qlen = 0;
 }
-
-struct list_node {
-	struct list_node *next;
-	struct list_node *prev;
-
-	void *tnode;
-};
 
 /**
  * return 1, if list is empty
